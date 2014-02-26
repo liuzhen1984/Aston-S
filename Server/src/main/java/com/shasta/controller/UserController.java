@@ -22,14 +22,28 @@ public class UserController {
     UserObj get(@PathVariable("id") Long id) {
         return new UserObj();
     }
-    @RequestMapping(value="/{id}/register",method= RequestMethod.GET)
+    @RequestMapping(value="/register",method= RequestMethod.GET)
     public @ResponseBody
-    UserObj register(@PathVariable("id") Long id) {
+    UserObj register(@RequestParam("username") String username,
+                     @RequestParam("email") String email,
+                     @RequestParam("password") String password,
+                     @RequestParam("rePassword") String rePassword) {
+        //对比两次密码是否正确
+
+
+        //基本数据验证,email，username,等通信方式是否有重复的
+
+        //添加到数据中
+
         return new UserObj();
     }
-    @RequestMapping(value="/{id}/push",method= RequestMethod.POST)
-    public @ResponseBody UserObj register(@PathVariable("id") Long id,
-                                            @RequestParam("key") String key) {
+    @RequestMapping(value="/login",method= RequestMethod.POST)
+    public @ResponseBody UserObj login(@RequestParam("username") String username,
+                                        @RequestParam("password") String password) {
+        //验证密码是否正确
+
+        //正确后，添加到redis中表示已经登录
         return new UserObj();
     }
+
 }

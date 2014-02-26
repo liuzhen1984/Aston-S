@@ -15,14 +15,25 @@ public class DeviceController {
         return new DeviceObj();
     }
 
-    @RequestMapping(value="/{id}/register",method= RequestMethod.GET)
+    @RequestMapping(value="/{sn}/register",method= RequestMethod.GET)
     public @ResponseBody
-    DeviceObj register(@PathVariable("id") Long id) {
-        return new DeviceObj();
+    String register(@PathVariable("sn") String sn) {
+        return new String("range_str");
     }
     @RequestMapping(value="/{id}/push",method= RequestMethod.POST)
     public @ResponseBody DeviceObj pushData(@PathVariable("id") Long id,
-                                            @RequestParam("key") String key) {
+                                            @RequestParam("session_key") String key,
+                                            @RequestParam("data") String data,
+
+                                            @RequestParam("sn") String sn) {
+
+        //redis中针对该IP过来请求错误次数,大于5次则直接return
+
+        //redis中对比session_key ，redis不存在，则取数据获取
+
+        //对比是否正确 ，错误的话返回，并计数
+
+        //如果有config更新，session_key更新直接返回，否则返回默认值
         return new DeviceObj();
     }
 }

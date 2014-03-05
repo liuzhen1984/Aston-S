@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="shasta:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="shasta.war">
+    <root id="archive" name="shap.war">
       <element id="artifact" artifact-name="shasta:war exploded" />
     </root>
   </artifact>
